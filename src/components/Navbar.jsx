@@ -16,8 +16,10 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between py-6 mb-8 backdrop-blur-sm bg-white/80 sticky top-0 z-50 border-b border-gray-100 shadow-sm'>
-      {/* Only show Carepoint as a clickable brand name, no logo */}
-      <span onClick={() => navigate('/')} className='font-bold text-2xl text-[#1a237e] cursor-pointer select-none transition-transform duration-200 hover:scale-110 hover:text-blue-600'>Carepoint</span>
+      <div onClick={() => navigate('/')} className='flex items-center gap-3 cursor-pointer'>
+        <img className='w-12 h-12' src={assets.new} alt="Carepoint Logo" />
+        <span className='text-2xl font-bold text-blue-600'>Carepoint</span>
+      </div>
 
       <ul className='md:flex items-center gap-8 font-medium hidden'>
         <NavLink to='/' className={({ isActive }) => `relative group px-4 py-2 rounded-full transition-all duration-300 ${isActive ? 'text-primary bg-primary/10' : 'text-gray-700 hover:text-primary hover:bg-gray-50'}`}>
@@ -77,7 +79,10 @@ const Navbar = () => {
         {/* ---- Mobile Menu ---- */}
         <div className={`md:hidden ${showMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 z-50 overflow-hidden bg-white/95 backdrop-blur-lg transition-all duration-500`}>
           <div className='flex items-center justify-between px-6 py-6 border-b border-gray-100'>
-            <img src={assets.logo} className='w-36' alt="" />
+            <div className='flex items-center gap-3'>
+              <img src={assets.new} className='w-10 h-10' alt="Carepoint Logo" />
+              <span className='text-xl font-bold text-blue-600'>Carepoint</span>
+            </div>
             <button onClick={() => setShowMenu(false)} className='w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-all duration-300'>
               <img src={assets.cross_icon} className='w-6' alt="" />
             </button>
